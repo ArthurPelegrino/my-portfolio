@@ -5,13 +5,18 @@ import './NavBar.scss'
 const NavBar = () => {
     return (
         <nav className='navBar'>
-            <h3> Arthur Pelegrino </h3>
+            <Link to='home'>
+                <h3> {"<Arthur Pelegrino />"} </h3>            
+            </Link>            
             <ul>
             <Link to="about" >
                 <Button variant='primary'> About </Button>
             </Link>
             <Link to="projects">
                 <Button variant='primary'> Projects </Button>
+            </Link>
+            <Link to="technologies">
+                <Button variant='primary'> Technologies </Button>
             </Link>
             <Link to="contact">
                 <Button variant='primary'> Contact </Button>
