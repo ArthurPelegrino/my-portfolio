@@ -15,9 +15,6 @@ const NavBar = () => {
             <Link to="projects">
                 <Button variant='primary'> Projects </Button>
             </Link>
-            <Link to="technologies">
-                <Button variant='primary'> Technologies </Button>
-            </Link>
             <Link to="contact">
                 <Button variant='primary'> Contact </Button>
             </Link>
