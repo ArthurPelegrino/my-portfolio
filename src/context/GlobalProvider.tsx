@@ -7,20 +7,20 @@ type GlobalProviderProps = {
 
 function GlobalProvider({ children }: GlobalProviderProps) {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-  // const [language, setLanguage] = useState<'en' | 'pt' | 'es'>('en');
+  const [language, setLanguage] = useState<'en' | 'pt' | 'es'>('en');
 
   function toggleTheme() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }
 
-  // function changeLanguage(newLanguage: 'en' | 'pt' | 'es') {
-  //   setLanguage(newLanguage);
-  // }
+  function changeLanguage(newLanguage: 'en' | 'pt' | 'es') {
+    setLanguage(newLanguage);
+  }
 
   return (
     <GlobalContext.Provider value={{ theme, toggleTheme
-    // , language,
-    //  setLanguage: changeLanguage 
+    , language,
+     setLanguage: changeLanguage 
      }}>
       <div>
         {children}

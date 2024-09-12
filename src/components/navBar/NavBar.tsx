@@ -1,19 +1,37 @@
 import {Link} from 'react-scroll'
 import Button from 'react-bootstrap/Button';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useContext } from 'react';
+import { useState } from 'react';
 import GlobalContext from '../../context/GlobalContext';
 
 import './NavBar.scss'
+import { DropdownToggle } from 'react-bootstrap';
 const NavBar = () => {
-    const { theme, toggleTheme } = useContext(GlobalContext);
+    const { theme, toggleTheme, setLanguage  } = useContext(GlobalContext);
+
+    const [selectedLanguage, setSelectedLanguage] = useState('🇧🇷');
+
+    const handleSelect = (eventKey: string | null) => {
+      if (eventKey === '1') {
+        setSelectedLanguage('🇧🇷')
+        setLanguage('pt')};
+      if (eventKey === '2') { 
+        setSelectedLanguage('🇪🇸');
+        setLanguage('es')
+      }
+      if (eventKey === '3'){
+        setSelectedLanguage('🇺🇸');
+        setLanguage('en')
+      } 
+    };
 
 
     return (
         <nav className={`${theme}`}>
             <Link to='home'>
-                <h3> {"<Arthur Pelegrino />"} </h3>            
-            </Link>        
-            <h3> {theme}</h3>
+                <h3> {"<Arthur Pelegrino />"}</h3>            
+            </Link>
             <ul>
             <Link to="about" >
                 <Button variant='primary'> About </Button>
@@ -24,12 +42,20 @@ const NavBar = () => {
             <Link to="contact">
                 <Button variant='primary'> Contact </Button>
             </Link>
+            <Dropdown onSelect={handleSelect}>
+                <DropdownToggle id='dropdown-basic'>
+                    Language: {selectedLanguage}
+                </DropdownToggle>
+                <Dropdown.Menu>
+                    <Dropdown.Item eventKey='1'>🇧🇷</Dropdown.Item>
+                    <Dropdown.Item eventKey='2'>🇪🇸</Dropdown.Item>
+                    <Dropdown.Item eventKey='3'>🇺🇸</Dropdown.Item>
+                </Dropdown.Menu>
+            </Dropdown>  
             <Button onClick={toggleTheme}>
                 {theme === 'dark' ? '☀️' : '🌒'}
-            </Button>
-            <Button>
-                🇧🇷
-            </Button>
+                
+            </Button>      
             </ul>
         </nav>
     )
