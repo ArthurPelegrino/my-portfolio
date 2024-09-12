@@ -6,7 +6,7 @@ type GlobalProviderProps = {
 };
 
 function GlobalProvider({ children }: GlobalProviderProps) {
-  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [theme, setTheme] = useState<'dark' | 'light'>('light');
   const [language, setLanguage] = useState<'en' | 'pt' | 'es'>('en');
 
   function toggleTheme() {

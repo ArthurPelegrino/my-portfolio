@@ -9,7 +9,6 @@ import './NavBar.scss'
 import { DropdownToggle } from 'react-bootstrap';
 const NavBar = () => {
     const { theme, toggleTheme, setLanguage  } = useContext(GlobalContext);
-
     const [selectedLanguage, setSelectedLanguage] = useState('🇧🇷');
 
     const handleSelect = (eventKey: string | null) => {
@@ -28,7 +27,7 @@ const NavBar = () => {
 
 
     return (
-        <nav className={`${theme}`}>
+        <nav className={ `navBar ${theme}`}>
             <Link to='home'>
                 <h3> {"<Arthur Pelegrino />"}</h3>            
             </Link>
@@ -47,9 +46,9 @@ const NavBar = () => {
                     Language: {selectedLanguage}
                 </DropdownToggle>
                 <Dropdown.Menu>
-                    <Dropdown.Item eventKey='1'>🇧🇷</Dropdown.Item>
-                    <Dropdown.Item eventKey='2'>🇪🇸</Dropdown.Item>
-                    <Dropdown.Item eventKey='3'>🇺🇸</Dropdown.Item>
+                    <Dropdown.Item eventKey='1'>🇧🇷 Portugês</Dropdown.Item>
+                    <Dropdown.Item eventKey='2'>🇪🇸 Español</Dropdown.Item>
+                    <Dropdown.Item eventKey='3'>🇺🇸 English</Dropdown.Item>
                 </Dropdown.Menu>
             </Dropdown>  
             <Button onClick={toggleTheme}>

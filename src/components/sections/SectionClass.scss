@@ -1,25 +1,22 @@
 .mainSection {
-  padding: 80px 20px;
-  margin: 0 auto;  
-  line-height: 1.6; 
-  display: flex;
-  height: 100vh;
-  color: #333;
-}
+  @mixin main-section ($bg-color) {
 
+    padding: 80px 20px;
+    margin: 0 auto;  
+    line-height: 1.6; 
+    display: flex;
+    height: 100vh;
+    color: #333;
+    // background-color: $bg-color;
+  }
 
-.sectionClass {
-  display: flex;
-  flex-direction: column; 
-  padding-top: auto;
-  height: auto; 
-}
+  &.dark {
+    @include main-section(black)
+  }
 
-.sectionClass div {
-  // display: flex;
-  // justify-content: center;
-  align-items: center;
-  // border: red 2px solid;
+  &.light {
+    @include main-section(white);
+  }
 }
 
 .mainSection div {
@@ -92,6 +89,20 @@ cursor: pointer;
 height: 100%;
 }
 
+.sectionClass {
+  display: flex;
+  flex-direction: column; 
+  padding-top: auto;
+  height: auto; 
+}
+
+.sectionClass div {
+  // display: flex;
+  // justify-content: center;
+  align-items: center;
+  // border: red 2px solid;
+}
+
 
     
 .sectionClass h1 {
@@ -130,5 +141,3 @@ height: 100%;
     padding: 60px;
     color: white;
   }
-  
-    

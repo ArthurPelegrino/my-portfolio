@@ -1,12 +1,15 @@
+import GlobalContext from '../../context/GlobalContext.js'
+import { useContext } from 'react'
 import Contact from '../contact/Contact.js'
 import TechStack from '../techStack/TechStack.jsx'
 
 import './SectionClass.scss'
 
 const Sections = () => {
+    const { theme } = useContext(GlobalContext);
     return (
         <>
-            <section id="home" className='mainSection'>
+            <section id="home" className={`mainSection ${theme}`}>
                 <div>
                 <h1>Hi, I am Arthur!</h1>
                 <h4>Full-Stack Web Developer</h4>
