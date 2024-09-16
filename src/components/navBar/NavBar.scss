@@ -1,80 +1,48 @@
-.dark {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: rgb(24, 22, 22);
-    padding: 10px;
-    z-index: 1000;
-    justify-content: space-around;
-    display: flex;
-    box-shadow: 0px 4px 8px rgba(190, 40, 178, 0.3);
-  }
-  
-    .dark h3 {
-      padding-left: 60px;
-      font-family: 'Lato', sans-serif;
-      color: #007bff;
-      cursor: pointer;
-  
-    }
-  
-    .dark ul {
-      list-style-type: none;
-      padding-right: 100px;
-      margin: 0;
-      padding: 30;
-      display: flex;
-      justify-content: center;
-      // border: red solid 4px;
-    }
-    
-    .dark ul button {
-      margin: 0 10px;
-      max-height: 37px;
-    }
-    
-  .dark ul li a {
-    color: white;
-    text-decoration: none;
+.navBar{
+  @mixin nav-bar ($bg-color, $text-color) {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: $bg-color;
+  padding: 10px;
+  z-index: 1000;
+  justify-content: space-around;
+  display: flex;
+  box-shadow: 0px 4px 8px rgba(190, 40, 178, 0.3);
+
+  h3 {
+    padding-left: 60px;
+    font-family: 'Lato', sans-serif;
+    color: #007bff;
     cursor: pointer;
   }
 
-  .light {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background-color: white;
-    padding: 10px;
-    z-index: 1000;
-    justify-content: space-around;
+  ul {
+    list-style-type: none;
+    padding-right: 100px;
+    margin: 0;
+    padding: 30;
     display: flex;
-    box-shadow: 0px 4px 8px rgba(190, 40, 178, 0.3);
-  }
-  
-    .light h3 {
-      padding-left: 60px;
-      font-family: 'Lato', sans-serif;
-      color: #007bff;
-      cursor: pointer;
-  
-    }
-  
-    .light ul {
-      list-style-type: none;
-      padding-right: 100px;
-      margin: 0;
-      padding: 30;
-      display: flex;
-      justify-content: center;
-      // border: red solid 4px;
-    }
-    
-    .light ul button {
+    justify-content: center;
+
+    button {
       margin: 0 10px;
       max-height: 37px;
     }
-  .light ul li a {
-    color: white;
-    text-decoration: none;
-    cursor: pointer;
+
+    li a {
+      color: $text-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
   }
+}
+
+&.dark {
+  @include nav-bar(rgb(24, 22, 22), white);
+}
+
+&.light {
+  @include nav-bar(white, black);
+}
+}

@@ -1,43 +1,49 @@
 import './Contact.scss';
+import { contactTexts } from '../../texts/contactTexts';
+import GlobalContext from '../../context/GlobalContext';
+import { useContext } from 'react';
 
 const Contact = () => {
+  const { language } = useContext(GlobalContext)
+  const { myTitle, subtitle, description, form, cardContact} = contactTexts;
+
   return (
     <section className="contact-section">
-      <h1>Let's Connect</h1>
+      <h1>{myTitle[language]}</h1>
       <div className="contact-container">
         <div className="contact-form">
-          <h2>Connect with me</h2>
-          <p>If you want to know more about me or my work, or if you would just like to say hello, send me a message. I'd love to hear from you.</p>
+          <h2>{subtitle[language]}</h2>
+          <p>{description[language]}</p>
 
           <form>
             <div className="form-group">
-              <label htmlFor="name">Name:</label>
-              <input type="text" id="name" placeholder="Enter your name" />
+              <label htmlFor="name">{form.name[language]}:</label>
+              <input type="text" id="name" placeholder={form.placeHolder.name[language]}/>
             </div>
             <div className="form-group">
-              <label htmlFor="email">Email:</label>
-              <input type="email" id="email" placeholder="Enter your email" />
+              <label htmlFor="email">{form.email[language]}:</label>
+              <input type="email" id="email" placeholder={form.placeHolder.email[language]} />
             </div>
             <div className="form-group">
-              <label htmlFor="message">Message:</label>
-              <textarea id="message" placeholder="Enter your message"></textarea>
+              <label htmlFor="message">{form.message[language]}:</label>
+              <textarea id="message" placeholder={form.placeHolder.message[language]}></textarea>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit">{form.submitButton[language]}</button>
           </form>
-          <a href="mailto:arthurpelegrino97@gmail.com" className="email-link">Send me email directly</a>
+          <a href="mailto:arthurpelegrino97@gmail.com" className="email-link">{form.directlyMail[language]}</a>
         </div>
 
         <div className="contact-info">
           <div className="email-info">
-            <h3>Email</h3>
+            <h3>{cardContact.email[language]}</h3>
             <p>arthurpelegrino97@gmail.com</p>
           </div>
           <div className="address-info">
-            <h3>Address</h3>
+            <h3>{cardContact.address[language]}</h3>
             <p>Belo Horizonte, Minas Gerais, Brasil</p>
           </div>
           <div className="social-info">
-            <h3>Social</h3>
+            <h3>{cardContact.socialMedia[language]}</h3>
             <div className="social-icons">
               <a href="#!"><i className="fab fa-stack-overflow"></i></a>
               <a href="#!"><i className="fab fa-instagram"></i></a>
