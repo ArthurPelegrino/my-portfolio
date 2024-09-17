@@ -17,6 +17,10 @@
     cursor: pointer;
   }
 
+  div {
+    display: flex;
+  }
+
   ul {
     list-style-type: none;
     padding-right: 100px;
@@ -35,6 +39,8 @@
       text-decoration: none;
       cursor: pointer;
     }
+
+
   }
 }
 
@@ -45,4 +51,70 @@
 &.light {
   @include nav-bar(white, black);
 }
+}
+
+// .teste {
+//   display: flex;
+//   justify-content: right;
+//   border: 2px red solid;
+// }
+
+.bar {
+  display: none;
+  width: 25px;
+  height: 3px;
+  background-color: #007bff;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+/* Media query para telas menores */
+@media (max-width: 1111px) {
+  .navBar ul {
+    display: none;
+  }
+  .navBar ul.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 65px; /* Mantém o menu mais abaixo */
+    left: 55%; /* Centraliza o menu horizontalmente */
+    // transform: translateX(-50%); /* Garante que o menu fique centralizado em relação ao ícone */
+    background-color: white;
+    width: 250px;
+    height: auto;
+    gap: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .navBar ul.closed {
+    display: none;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .bar {
+    display: flex;
+    width: 25px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+  }
+
+  .navBar ul button {
+    width: 100%; /* Faz o botão ocupar toda a largura */
+    min-height: 40px; /* Define uma altura mínima para os botões */
+    max-height: 50px; /* Define uma altura máxima para os botões */
+    text-align: center; /* Alinha o texto no centro */
+    padding: 10px;
+    font-size: 1rem; /* Tamanho de fonte consistente */
+  }
 }

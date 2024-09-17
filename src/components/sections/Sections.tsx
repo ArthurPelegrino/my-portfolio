@@ -25,7 +25,6 @@ const Sections = () => {
                 </ul>
                 </div>
             </section>
-
             <section id="about" className='sectionClass alter2'>
                 <div>
                     <h1>{myTitle[language]}</h1>
