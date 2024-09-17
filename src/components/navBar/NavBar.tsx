@@ -11,6 +11,12 @@ import { DropdownToggle } from 'react-bootstrap';
 const NavBar = () => {
     const { theme, toggleTheme, setLanguage, language  } = useContext(GlobalContext);
     const [selectedLanguage, setSelectedLanguage] = useState('🇧🇷');
+    const [isOpen, setIsOpen] = useState(false);
+
+    const toggleMenu = () => {
+      setIsOpen(!isOpen);
+      console.log(isOpen)
+    };
 
     const { about, projects, contact, selectedLanguageText} = navBarButtonsText
 
@@ -34,31 +40,40 @@ const NavBar = () => {
             <Link to='home'>
                 <h3> {"<Arthur Pelegrino />"}</h3>            
             </Link>
-            <ul>
-            <Link to="about" >
-                <Button variant='primary'> {about[language]} </Button>
-            </Link>
-            <Link to="projects">
-                <Button variant='primary'> {projects[language]} </Button>
-            </Link>
-            <Link to="contact">
-                <Button variant='primary'> {contact[language]} </Button>
-            </Link>
-            <Dropdown onSelect={handleSelect}>
-                <DropdownToggle id='dropdown-basic'>
-                   {selectedLanguageText[language]}: {selectedLanguage}
-                </DropdownToggle>
-                <Dropdown.Menu>
-                    <Dropdown.Item eventKey='3'>🇺🇸 English</Dropdown.Item>
-                    <Dropdown.Item eventKey='1'>🇧🇷 Portugês</Dropdown.Item>
-                    <Dropdown.Item eventKey='2'>🇪🇸 Español</Dropdown.Item>
-                </Dropdown.Menu>
-            </Dropdown>  
-            <Button onClick={toggleTheme}>
-                {theme === 'dark' ? '☀️' : '🌒'}
-                
-            </Button>      
-            </ul>
+            <div className='teste'>
+                <ul className={`burgerMenu ${isOpen ? 'open' : 'closed'}`}>
+                <Link to="about" >
+                    <Button variant='primary'> {about[language]} </Button>
+                </Link>
+                <Link to="projects">
+                    <Button variant='primary'> {projects[language]} </Button>
+                </Link>
+                <Link to="contact">
+                    <Button variant='primary'> {contact[language]} </Button>
+                </Link>
+                <Dropdown onSelect={handleSelect}>
+                    <DropdownToggle id='dropdown-basic'>
+                    {selectedLanguageText[language]}: {selectedLanguage}
+                    </DropdownToggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item eventKey='3'>🇺🇸 English</Dropdown.Item>
+                        <Dropdown.Item eventKey='1'>🇧🇷 Portugês</Dropdown.Item>
+                        <Dropdown.Item eventKey='2'>🇪🇸 Español</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>  
+                </ul>
+                <ul>
+                    <div className="hamburger" onClick={toggleMenu}>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                        <span className="bar"></span>
+                    </div>
+                    <Button onClick={toggleTheme}>
+                        {theme === 'dark' ? '☀️' : '🌒'}                    
+                    </Button>      
+                </ul>
+
+            </div>
         </nav>
     )
 }
